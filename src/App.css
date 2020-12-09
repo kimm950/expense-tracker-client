@@ -18,6 +18,13 @@ h3 {
   border-radius: 0.3rem;
 }
 
+@media only screen and (max-width: 600px) {
+  .container {
+    width: 90vw;
+    padding: 10% 0;
+  }
+}
+
 .income-container {
   display: flex;
   justify-content: space-between;
