@@ -1,9 +1,10 @@
 import React, { useContext, useEffect } from 'react';
 import { GlobalContext } from '../context/GlobalState';
 import { Transaction } from './Transaction';
+import Mame from '../assets/Mame.png';
 
 export const TransactionList = () => {
-  const { transactions, getTransactions } = useContext(GlobalContext);
+  const { transactions, getTransactions, loading } = useContext(GlobalContext);
 
   useEffect(() => {
     getTransactions();
@@ -12,11 +13,19 @@ export const TransactionList = () => {
   return (
     <>
       <h3>History</h3>
-      <ul>
-        {transactions.map((transaction) => (
-          <Transaction key={transaction.id} transaction={transaction} />
-        ))}
-      </ul>
+      {loading ? (
+        <>
+          <img src={Mame} />
+          <img src={Mame} />
+          <img src={Mame} />
+        </>
+      ) : (
+        <ul>
+          {transactions.map((transaction) => (
+            <Transaction key={transaction.id} transaction={transaction} />
+          ))}
+        </ul>
+      )}
     </>
   );
 };

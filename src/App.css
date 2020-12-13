@@ -16,6 +16,9 @@ h3 {
   border-bottom: 1px solid #3f3f3f41;
 }
 
+img {
+  width: 100px;
+}
 .app {
   display: flex;
   justify-content: center;
