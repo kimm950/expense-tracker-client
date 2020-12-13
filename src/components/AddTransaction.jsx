@@ -4,6 +4,7 @@ import { GlobalContext } from '../context/GlobalState';
 export const AddTransaction = () => {
   const [text, setText] = useState('');
   const [amount, setAmount] = useState(0);
+  const [isExpense, togglePlusOrMinus] = useState(false);
 
   const { addTransaction } = useContext(GlobalContext);
 
@@ -12,10 +13,12 @@ export const AddTransaction = () => {
     if (!text) return alert('Please fill text');
     if (!amount) return alert('Please fill amount');
 
+    const definedAmount = Number(isExpense ? `- ${amount}` : amount);
+
     const newTransaction = {
       id: Math.floor(Math.random() * 100000000),
       text: text,
-      amount: Number(amount),
+      amount: definedAmount,
     };
 
     addTransaction(newTransaction);
@@ -43,12 +46,33 @@ export const AddTransaction = () => {
             Amount <br />
             (negative - expense, positive - income)
           </label>
-          <input
-            type="number"
-            value={amount}
-            onChange={(e) => setAmount(e.target.value)}
-            placeholder="Enter amount..."
-          />
+          <div className="amount-container">
+            <>
+              {isExpense ? (
+                <button
+                  className="btn minus"
+                  type="button"
+                  onClick={() => togglePlusOrMinus(!isExpense)}
+                >
+                  －
+                </button>
+              ) : (
+                <button
+                  className="btn plus"
+                  type="button"
+                  onClick={() => togglePlusOrMinus(!isExpense)}
+                >
+                  ＋
+                </button>
+              )}
+            </>
+            <input
+              type="number"
+              value={amount}
+              onChange={(e) => setAmount(e.target.value)}
+              placeholder="Enter amount..."
+            />
+          </div>
         </div>
         <button type="submit" className="transaction-btn">
           Add transaction
