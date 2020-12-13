@@ -13,7 +13,7 @@ export const AddTransaction = () => {
     if (!text) return alert('Please fill text');
     if (!amount) return alert('Please fill amount');
 
-    const definedAmount = Number(isExpense ? `- ${amount}` : amount);
+    const definedAmount = Number(isExpense ? `-${amount}` : amount);
 
     const newTransaction = {
       id: Math.floor(Math.random() * 100000000),
