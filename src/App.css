@@ -1,5 +1,15 @@
 :root {
   --base-padding: 5px;
+  --base-green: rgb(0, 189, 95);
+  --base-red: crimson;
+  --base-shadow: rgba(0, 0, 0, 0.2);
+  --base-font-size: 1.2em;
+  --base-radius: 0.3rem;
+}
+
+body {
+  margin: 0;
+  padding: 0;
 }
 
 h3 {
@@ -19,7 +29,7 @@ h3 {
 .container {
   width: 40vw;
   min-width: 200px;
-  border-radius: 0.3rem;
+  border-radius: var(--base-radius);
   padding: var(--base-padding);
 }
 
@@ -33,21 +43,21 @@ h3 {
 .income-container {
   display: flex;
   justify-content: space-between;
-  box-shadow: 0 1px 10px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 1px 10px var(--base-shadow);
   margin: 0 auto;
-  border-radius: 0.3rem;
+  border-radius: var(--base-radius);
 }
 
 .money {
-  font-size: 1.5em;
+  font-size: var(--base-font-size);
   font-weight: bold;
 }
 
 .money-in {
-  color: forestgreen;
+  color: var(--base-green);
 }
 .money-out {
-  color: crimson;
+  color: var(--base-red);
 }
 .income {
   flex: 1;
@@ -55,7 +65,7 @@ h3 {
 }
 
 .expense {
-  border-left: 1px solid rgba(0, 0, 0, 0.2);
+  border-left: 1px solid var(--base-shadow);
   flex: 1;
   text-align: center;
 }
@@ -73,17 +83,17 @@ li {
   align-items: center;
   margin: 5px 0;
   justify-content: space-between;
-  padding: 5px;
+  padding: var(--base-padding);
 }
 
 .in {
-  color: forestgreen;
-  border-left: 3px solid forestgreen;
+  color: var(--base-green);
+  border-left: 3px solid var(--base-green);
 }
 
 .out {
-  border-left: 3px solid crimson;
-  color: crimson;
+  border-left: 3px solid var(--base-red);
+  color: var(--base-red);
 }
 
 .form-control {
@@ -100,16 +110,41 @@ li {
 
 input {
   height: 30px;
-  padding-left: 5px;
+  padding-left: var(--base-padding);
+  width: 100%;
 }
 
+.amount-container {
+  display: flex;
+}
+
+.btn {
+  width: 36px;
+  height: 36px;
+  font-size: var(--base-font-size);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  border: none;
+  color: #ffff;
+  border-radius: var(--base-radius);
+}
+
+.plus {
+  background-color: var(--base-green);
+}
+
+.minus {
+  background-color: var(--base-red);
+}
 .transaction-btn {
   width: 100%;
   height: 50px;
   text-align: center;
-  background-color: rgb(0, 189, 95);
+  background-color: var(--base-green);
   color: #ffff;
-  font-size: 1.2em;
+  font-size: var(--base-font-size);
   border: none;
-  border-radius: 0.3rem;
+  border-radius: var(--base-radius);
 }
